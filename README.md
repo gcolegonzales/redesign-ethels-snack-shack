@@ -37,6 +37,18 @@ Plain `index.html` + `styles.css` + `script.js` with a single Google Fonts link 
 `assets/`. Scroll-reveal via `IntersectionObserver`; all motion respects
 `prefers-reduced-motion`.
 
+## SEO / deploy note
+
+On-page SEO is in place: a `Restaurant` JSON-LD block (name, telephone, address, hours,
+`priceRange`, `servesCuisine`, image, url, menu, `sameAs`), complete Open Graph + Twitter Card
+tags, a canonical link, plus `robots.txt` and `sitemap.xml` at the repo root.
+
+**Base URL placeholder:** the canonical link, `og:url`, `twitter:image`, the JSON-LD `url`/`image`/`menu`,
+and the `robots.txt` / `sitemap.xml` URLs all use the literal placeholder
+`https://REPLACE-WITH-DOMAIN.com/`. At deploy time, run one find-and-replace of
+`https://REPLACE-WITH-DOMAIN.com/` → the real domain across `index.html`, `robots.txt`, and
+`sitemap.xml`.
+
 ## Data notes
 
 All facts (address, hours, phone, story, award, menu, prices) are drawn from public sources
