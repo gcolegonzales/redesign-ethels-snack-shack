@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ethel's Snack Shack — Soul Food in Scotlandville, Baton Rouge</title>
+  <meta name="description" content="Ethel's Snack Shack is one of Baton Rouge's oldest soul food kitchens — a 2024 Soul Food Pioneer in Scotlandville. Red beans and rice, smothered chicken, fried catfish, turkey wings and homemade cobbler. Call (225) 465-4512." />
+  <meta name="theme-color" content="#7a1f1a" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="restaurant" />
+  <meta property="og:title" content="Ethel's Snack Shack — Baton Rouge Soul Food Since 1955" />
+  <meta property="og:description" content="A Baton Rouge soul food institution and 2024 Soul Food Pioneer. Plate lunches, red beans and rice, fried catfish and homemade desserts in Scotlandville." />
+  <meta property="og:image" content="assets/plate-turkey.jpg" />
+
+  <!-- Fonts: single Google Fonts link (allowed by brief) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Alfa+Slab+One&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Structured data: real business facts only -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Ethel's Snack Shack",
+    "servesCuisine": ["Soul Food", "Southern", "Cajun/Creole"],
+    "telephone": "+1-225-465-4512",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "1553 Fairchild St",
+      "addressLocality": "Baton Rouge",
+      "addressRegion": "LA",
+      "postalCode": "70807",
+      "addressCountry": "US"
+    },
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "10:00",
+      "closes": "17:00"
+    }],
+    "award": "2024 Baton Rouge Soul Food Festival — Soul Food Pioneer"
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#menu">Skip to menu</a>
+
+  <!-- ===== HEADER / NAV ===== -->
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="Ethel's Snack Shack home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48" width="40" height="40" role="img" aria-label="Cooking pot">
+            <path d="M8 20h32a0 0 0 0 1 0 0v3a16 16 0 0 1-16 16h0A16 16 0 0 1 8 23v-3a0 0 0 0 1 0 0Z" fill="currentColor"/>
+            <rect x="4" y="16" width="40" height="5" rx="2.5" fill="currentColor"/>
+            <path d="M2 18h4M42 18h4" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+            <path d="M18 8c0 3-3 3-3 6M24 6c0 3-3 3-3 6M30 8c0 3-3 3-3 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" fill="none" opacity=".85"/>
+          </svg>
+        </span>
+        <span class="brand-text">
+          <span class="brand-name">Ethel's</span>
+          <span class="brand-sub">Snack Shack</span>
+        </span>
+      </a>
+
+      <nav class="main-nav" aria-label="Primary">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+        <ul id="nav-list" class="nav-list">
+          <li><a href="#story">Our Story</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#praise">Praise</a></li>
+          <li><a href="#visit">Visit</a></li>
+          <li><a class="nav-call" href="tel:+12254654512">Call to Order</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== HERO ===== -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-media">
+        <img src="assets/hero.jpg" alt="A soul food plate lunch from Ethel's Snack Shack — smothered turkey with candied yams, greens and cornbread dressing." loading="eager" fetchpriority="high" />
+        <div class="hero-scrim"></div>
+      </div>
+      <div class="hero-content">
+        <p class="eyebrow">Scotlandville &middot; Baton Rouge, LA &middot; Since 1955</p>
+        <h1 id="hero-title" class="hero-title">Soul food the way<br />Mama used to make it.</h1>
+        <p class="hero-lede">
+          For seven decades, this little kitchen off Fairchild Street has been feeding Baton Rouge
+          with red beans and rice, smothered meats and homemade cobbler. Named a
+          <strong>2024 Soul Food Pioneer</strong> — still cooked from scratch, every single day.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="tel:+12254654512">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1l-2.2 2.2Z"/></svg>
+            Call to Order · (225) 465-4512
+          </a>
+          <a class="btn btn-ghost" href="#menu">See the Menu</a>
+        </div>
+        <p class="hero-hours">Open Mon–Fri · 10 AM – 5 PM &nbsp;•&nbsp; Kitchen closes when the pots are empty</p>
+      </div>
+      <div class="hero-badge" aria-hidden="true">
+        <svg viewBox="0 0 120 120" width="112" height="112">
+          <circle cx="60" cy="60" r="58" fill="none" stroke="currentColor" stroke-width="2"/>
+          <circle cx="60" cy="60" r="50" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="2 4"/>
+          <path id="badge-curve-top" d="M60 16 a44 44 0 0 1 0 88" fill="none"/>
+          <path id="badge-curve-bot" d="M60 104 a44 44 0 0 1 0 -88" fill="none"/>
+          <text class="badge-text"><textPath href="#badge-curve-top" startOffset="0">SOUL FOOD PIONEER</textPath></text>
+          <text class="badge-text"><textPath href="#badge-curve-bot" startOffset="0">· 2024 · BR SOUL FOOD FEST ·</textPath></text>
+          <text x="60" y="56" text-anchor="middle" class="badge-year">EST.</text>
+          <text x="60" y="76" text-anchor="middle" class="badge-big">1955</text>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ===== STORY + AWARD ===== -->
+    <section class="story" id="story" aria-labelledby="story-title">
+      <div class="story-grid">
+        <div class="story-photo reveal">
+          <img src="assets/owners.jpg" alt="Paulette Thomas and her son Roderick Brown, the mother-and-son team who run Ethel's Snack Shack." loading="lazy" />
+          <figcaption>Paulette Thomas &amp; her son Roderick Brown — the mother-and-son team behind the pots.</figcaption>
+        </div>
+        <div class="story-copy reveal">
+          <p class="eyebrow eyebrow-red">Our Story</p>
+          <h2 id="story-title">One of Baton Rouge's oldest soul food kitchens.</h2>
+          <p>
+            Ethel's opened its doors in the mid-1950s and has been a fixture of the
+            <strong>Scotlandville</strong> neighborhood near Southern University ever since. Around
+            here, "snack" has always been code for something bigger — a full plate of honest,
+            slow-cooked soul food.
+          </p>
+          <p>
+            Since 2012, <strong>Paulette Thomas</strong> has carried the tradition forward, cooking
+            from recipes handed down by her mother — the same meals she once made for Paulette and
+            her five brothers every night. In 2021 her son <strong>Roderick Brown</strong> joined
+            her behind the counter, and together they keep the kitchen going the old way:
+            everything made from scratch, every single day.
+          </p>
+          <blockquote class="story-quote">
+            "You can't go out to McDonald's all the time. You got to cook."
+            <cite>— Paulette Thomas, owner</cite>
+          </blockquote>
+
+          <div class="award-card reveal">
+            <div class="award-medal" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="34" height="34"><path fill="currentColor" d="M12 2l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.8 6.2 20l1.1-6.5L2.6 8.8l6.5-.9L12 2z"/></svg>
+            </div>
+            <div>
+              <p class="award-title">2024 Soul Food Pioneer</p>
+              <p class="award-body">
+                Honored at the 7th Annual <strong>Baton Rouge Soul Food Festival</strong> for
+                preserving and sharing local soul food traditions for nearly 70 years.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== MENU ===== -->
+    <section class="menu" id="menu" aria-labelledby="menu-title">
+      <div class="section-head">
+        <p class="eyebrow eyebrow-red">The Menu</p>
+        <h2 id="menu-title">Plate lunches &amp; soul food classics</h2>
+        <p class="section-note">
+          Plates come with your choice of <strong>two sides</strong> and bread. Specials rotate by
+          the day — call ahead to hear what's in the pots. Prices shown are typical; ask about
+          today's specials.
+        </p>
+      </div>
+
+      <!-- MENU-INCOMPLETE note: pricing verified against public online menu listing; some daily rotating
+           items and their prices vary. Confirm full current menu with the restaurant. -->
+
+      <div class="menu-columns">
+
+        <div class="menu-block reveal">
+          <h3 class="menu-cat">Daily Specials</h3>
+          <ul class="menu-list">
+            <li class="menu-item">
+              <span class="mi-head"><span class="mi-name">Red Beans &amp; Rice with Fried Pork Chop</span><span class="mi-price">$10.50</span></span>
+              <span class="mi-desc">The everyday plate. Red beans and rice with a fried pork chop, two sides &amp; choice of bread. <em>Available daily.</em></span>
+            </li>
+            <li class="menu-item">
+              <span class="mi-head"><span class="mi-name">Smothered Turkey Wings</span><span class="mi-price">$10.50</span></span>
+              <span class="mi-desc">Fall-off-the-bone turkey wings with cornbread or a roll and two sides. <em>Mondays.</em></span>
+            </li>
+            <li class="menu-item">
+              <span class="mi-head"><span class="mi-name">Pork Chop with Red Beans</span><span class="mi-price">$12.00</span></span>
+              <span class="mi-desc">A hearty pork chop plate with red beans and two sides.</span>
+            </li>
+            <li class="menu-item">
+              <span class="mi-head"><span class="mi-name">Homemade Lasagna</span><span class="mi-price">$16.50</span></span>
+              <span class="mi-desc">Paulette's own lasagna with your choice of bread and two sides. <em>Wednesdays &amp; Fridays.</em></span>
+            </li>
+            <li class="menu-item">
+              <span class="mi-head"><span class="mi-name">BBQ Ribs Plate</span><span class="mi-price">$12.95</span></span>
+              <span class="mi-desc">Smoked ribs with potato salad and baked beans, choice of bread &amp; two sides. <em>Fridays.</em></span>
+            </li>
+            <li class="menu-item">
+              <span class="mi-head"><span class="mi-name">Seafood-Stuffed Potato</span><span class="mi-price">$14.00</span></span>
+              <span class="mi-desc">A loaded baked potato piled with seafood. <em>Fridays only.</em></span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="menu-block reveal">
+          <h3 class="menu-cat">Plates &amp; Seafood</h3>
+          <ul class="menu-list">
+            <li class="menu-item">
+              <span class="mi-head"><span class="mi-name">6-Piece Catfish Plate</span><span class="mi-price">$11.95</span></span>
+              <span class="mi-desc">Golden fried catfish with choice of bread and two sides. <em>Available daily.</em></span>
+            </li>
+            <li class="menu-item">
+              <span class="mi-head"><span class="mi-name">Fried Pork Chops Plate</span><span class="mi-price">$10.50</span></span>
+              <span class="mi-desc">Served over red beans and rice.</span>
+            </li>
+          </ul>
+          <h3 class="menu-cat menu-cat-spaced">Baskets</h3>
+          <ul class="menu-list">
+            <li class="menu-item">
+              <span class="mi-head"><span class="mi-name">4-Piece Fried Catfish Basket</span><span class="mi-price">$8.50</span></span>
+              <span class="mi-desc">Served with fries and a roll.</span>
+            </li>
+            <li class="menu-item">
+              <span class="mi-head"><span class="mi-name">Whole Fried Chicken Wings Basket (4 pc)</span><span class="mi-price">$8.50</span></span>
+              <span class="mi-desc">Served with fries and a roll.</span>
+            </li>
+            <li class="menu-item">
+              <span class="mi-head"><span class="mi-name">Chicken Wing Basket (4 pc)</span><span class="mi-price">$8.50</span></span>
+              <span class="mi-desc">Served with fries.</span>
+            </li>
+            <li class="menu-item">
+              <span class="mi-head"><span class="mi-name">Fried Pork Chop Basket</span><span class="mi-price">$8.00</span></span>
+              <span class="mi-desc">Served with fries and a roll.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="menu-block reveal">
+          <h3 class="menu-cat">Sandwiches</h3>
+          <ul class="menu-list">
+            <li class="menu-item">
+              <span class="mi-head"><span class="mi-name">Fried Catfish Sandwich</span><span class="mi-price">$7.00</span></span>
+            </li>
+            <li class="menu-item">
+              <span class="mi-head"><span class="mi-name">Fried Pork Chop Sandwich</span><span class="mi-price">$5.50</span></span>
+              <span class="mi-desc">Dressed with lettuce, tomato &amp; mayo, served with fries.</span>
+            </li>
+          </ul>
+
+          <h3 class="menu-cat menu-cat-spaced">Saturday Boiled Crawfish</h3>
+          <ul class="menu-list">
+            <li class="menu-item">
+              <span class="mi-head"><span class="mi-name">Crawfish Special (3 lb)</span><span class="mi-price">$20.99</span></span>
+              <span class="mi-desc">With sausage, corn and potatoes. <em>Saturdays only.</em></span>
+            </li>
+            <li class="menu-item">
+              <span class="mi-head"><span class="mi-name">Boiled Crawfish (1 lb)</span><span class="mi-price">$5.99</span></span>
+              <span class="mi-desc"><em>Saturdays only.</em></span>
+            </li>
+            <li class="menu-item">
+              <span class="mi-head"><span class="mi-name">Add-Ons</span><span class="mi-price">from $1.99</span></span>
+              <span class="mi-desc">Potatoes &amp; corn $2.99 · sausage link $1.99. <em>Saturdays only.</em></span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="menu-block reveal">
+          <h3 class="menu-cat">Sides</h3>
+          <ul class="menu-list menu-list-tight">
+            <li class="menu-item mi-inline"><span class="mi-name">Candied Yams</span><span class="mi-price">$3.00</span></li>
+            <li class="menu-item mi-inline"><span class="mi-name">Southern Mustard Greens</span><span class="mi-price">$3.00</span></li>
+            <li class="menu-item mi-inline"><span class="mi-name">Potato Salad</span><span class="mi-price">$3.00</span></li>
+            <li class="menu-item mi-inline"><span class="mi-name">Green Beans</span><span class="mi-price">$3.00</span></li>
+            <li class="menu-item mi-inline"><span class="mi-name">Corn</span><span class="mi-price">$3.00</span></li>
+            <li class="menu-item mi-inline"><span class="mi-name">Homemade Cheese Spaghetti</span><span class="mi-price">$3.00</span></li>
+            <li class="menu-item mi-inline"><span class="mi-name">Red Beans &amp; Rice (with sausage)</span><span class="mi-price">$4.75</span></li>
+            <li class="menu-item mi-inline"><span class="mi-name">French Fries</span><span class="mi-price">$2.00</span></li>
+          </ul>
+
+          <h3 class="menu-cat menu-cat-spaced">Desserts</h3>
+          <ul class="menu-list menu-list-tight">
+            <li class="menu-item mi-inline"><span class="mi-name">Banana Pudding</span><span class="mi-price">$3.00</span></li>
+            <li class="menu-item mi-inline"><span class="mi-name">Peach Cobbler</span><span class="mi-price">$3.00</span></li>
+            <li class="menu-item mi-inline"><span class="mi-name">Plain Cheesecake</span><span class="mi-price">$2.50</span></li>
+            <li class="menu-item mi-inline"><span class="mi-name">Homemade Cake</span><span class="mi-price">$2.00</span></li>
+          </ul>
+
+          <h3 class="menu-cat menu-cat-spaced">Drinks</h3>
+          <ul class="menu-list menu-list-tight">
+            <li class="menu-item mi-inline"><span class="mi-name">Sweet Tea</span><span class="mi-price">$4.50</span></li>
+            <li class="menu-item mi-inline"><span class="mi-name">Canned Soda</span><span class="mi-price">$1.00</span></li>
+            <li class="menu-item mi-inline"><span class="mi-name">Bottled Water</span><span class="mi-price">$2.00</span></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <p class="menu-foot">
+        Menu and daily specials rotate — <a href="tel:+12254654512">call (225) 465-4512</a> for
+        today's pots. Cash and cards welcome.
+      </p>
+    </section>
+
+    <!-- ===== GALLERY ===== -->
+    <section class="gallery" id="gallery" aria-labelledby="gallery-title">
+      <div class="section-head">
+        <p class="eyebrow eyebrow-cream">From the Kitchen</p>
+        <h2 id="gallery-title">A look inside Ethel's</h2>
+      </div>
+      <div class="gallery-grid">
+        <figure class="g-item g-tall reveal">
+          <img src="assets/plate-turkey.jpg" alt="A generous plate of smothered turkey with candied yams, collard greens and cornbread dressing." loading="lazy" />
+          <figcaption>The turkey plate — candied yams, greens &amp; dressing</figcaption>
+        </figure>
+        <figure class="g-item reveal">
+          <img src="assets/storefront.jpg" alt="The exterior of Ethel's Snack Shack on Fairchild Street, with its hand-painted signs." loading="lazy" />
+          <figcaption>The Shack on Fairchild Street</figcaption>
+        </figure>
+        <!-- IMG-NEEDED: additional documented dishes (red beans & rice, catfish, cobbler, crawfish)
+             would round out the gallery — sourced photos not confirmed reusable. -->
+        <figure class="g-item g-card reveal" aria-hidden="false">
+          <div class="g-card-inner">
+            <svg viewBox="0 0 24 24" width="40" height="40" aria-hidden="true"><path fill="currentColor" d="M12 2C8 2 5 5 5 9c0 3 2 5 4 6v5a3 3 0 0 0 6 0v-5c2-1 4-3 4-6 0-4-3-7-7-7Z" opacity=".9"/></svg>
+            <p class="g-card-title">Made from scratch, daily</p>
+            <p class="g-card-sub">Red beans simmering, catfish frying, cobbler in the oven — the way it's always been done.</p>
+          </div>
+        </figure>
+        <figure class="g-item g-wide reveal">
+          <img src="assets/owners.jpg" alt="Paulette Thomas and Roderick Brown standing together at Ethel's Snack Shack." loading="lazy" />
+          <figcaption>Family in every plate — Paulette &amp; Roderick</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ===== PRAISE / PRESS ===== -->
+    <section class="praise" id="praise" aria-labelledby="praise-title">
+      <div class="section-head">
+        <p class="eyebrow eyebrow-red">Praise &amp; Press</p>
+        <h2 id="praise-title">The neighborhood has spoken</h2>
+      </div>
+      <div class="praise-grid">
+        <blockquote class="praise-card reveal">
+          <p>"Beloved soulful dishes like red beans and rice, smothered turkey neck with cornbread
+          dressing, smothered pig tails with rice and gravy, and Paulette's lasagna… a beacon of
+          community and comfort food for Baton Rouge."</p>
+          <cite>Baton Rouge Soul Food Festival — 2024 Pioneer Award</cite>
+        </blockquote>
+        <blockquote class="praise-card reveal">
+          <p>"One of Baton Rouge's oldest restaurants is preserving local soul food traditions."</p>
+          <cite>225 Magazine</cite>
+        </blockquote>
+        <blockquote class="praise-card reveal">
+          <p>"Around here, 'snack' is code for soul food — generously portioned plates handed down
+          from a mother's kitchen to a whole neighborhood."</p>
+          <cite>From press coverage of the Pioneer Award</cite>
+        </blockquote>
+      </div>
+      <p class="praise-foot">Recognized statewide — featured by 225 Magazine, Louisiana Life &amp; WAFB.</p>
+    </section>
+
+    <!-- ===== VISIT / CONTACT / CATERING ===== -->
+    <section class="visit" id="visit" aria-labelledby="visit-title">
+      <div class="visit-grid">
+        <div class="visit-info reveal">
+          <p class="eyebrow eyebrow-cream">Come Eat</p>
+          <h2 id="visit-title">Find us in Scotlandville</h2>
+
+          <div class="info-row">
+            <div class="info-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z"/></svg>
+            </div>
+            <div>
+              <p class="info-label">Address</p>
+              <p class="info-val">1553 Fairchild St, Baton Rouge, LA 70807</p>
+              <a class="info-link" href="https://www.google.com/maps/dir/?api=1&destination=Ethel%27s+Snack+Shack+1553+Fairchild+St+Baton+Rouge+LA+70807" target="_blank" rel="noopener">Get directions →</a>
+            </div>
+          </div>
+
+          <div class="info-row">
+            <div class="info-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1l-2.2 2.2Z"/></svg>
+            </div>
+            <div>
+              <p class="info-label">Call to Order</p>
+              <p class="info-val"><a href="tel:+12254654512">(225) 465-4512</a></p>
+              <span class="info-link info-muted">Best to call ahead — plates go fast</span>
+            </div>
+          </div>
+
+          <div class="info-row">
+            <div class="info-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm1 10.4V7a1 1 0 1 0-2 0v6l.3.7 3.5 3.5a1 1 0 0 0 1.4-1.4L13 12.4Z"/></svg>
+            </div>
+            <div>
+              <p class="info-label">Hours</p>
+              <table class="hours-table">
+                <tbody>
+                  <tr><th scope="row">Mon – Fri</th><td>10:00 AM – 5:00 PM</td></tr>
+                  <tr class="hours-note-row"><th scope="row">Saturday</th><td>Boiled crawfish (seasonal)</td></tr>
+                  <tr class="hours-closed"><th scope="row">Sunday</th><td>Closed</td></tr>
+                </tbody>
+              </table>
+              <p class="info-muted">Kitchen closes early when the pots run out.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Catering inquiry form (styled, not wired — no fake ordering) -->
+        <div class="catering reveal" id="catering">
+          <h3>Catering &amp; Big Orders</h3>
+          <p class="catering-lede">
+            Feeding a crowd, a family gathering or a church function? Tell us what you need and we'll
+            call you back. This form isn't monitored around the clock — for anything time-sensitive,
+            please <a href="tel:+12254654512">call us</a>.
+          </p>
+          <form class="catering-form" action="#" method="post" novalidate>
+            <div class="field">
+              <label for="c-name">Your name</label>
+              <input type="text" id="c-name" name="name" autocomplete="name" required />
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="c-phone">Phone</label>
+                <input type="tel" id="c-phone" name="phone" autocomplete="tel" inputmode="tel" required />
+              </div>
+              <div class="field">
+                <label for="c-date">Date needed</label>
+                <input type="date" id="c-date" name="date" />
+              </div>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="c-guests">How many people?</label>
+                <input type="number" id="c-guests" name="guests" min="1" inputmode="numeric" />
+              </div>
+              <div class="field">
+                <label for="c-dish">Main dish</label>
+                <select id="c-dish" name="dish">
+                  <option value="">Choose a favorite…</option>
+                  <option>Red Beans &amp; Rice</option>
+                  <option>Smothered Turkey Wings</option>
+                  <option>Fried Catfish</option>
+                  <option>BBQ Ribs</option>
+                  <option>Lasagna</option>
+                  <option>Not sure — help me pick</option>
+                </select>
+              </div>
+            </div>
+            <div class="field">
+              <label for="c-notes">Anything else?</label>
+              <textarea id="c-notes" name="notes" rows="3" placeholder="Sides, allergies, pickup time…"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Send Catering Request</button>
+            <p class="form-status" role="status" aria-live="polite" hidden></p>
+            <p class="form-fineprint">We'll follow up by phone. No online payment — orders are settled at pickup.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="brand-name footer-name">Ethel's Snack Shack</span>
+        <p>Soul food, Scotlandville-style, since 1955. 2024 Baton Rouge Soul Food Pioneer.</p>
+      </div>
+      <div class="footer-cols">
+        <div>
+          <h4>Visit</h4>
+          <p>1553 Fairchild St<br />Baton Rouge, LA 70807</p>
+        </div>
+        <div>
+          <h4>Hours</h4>
+          <p>Mon–Fri · 10 AM – 5 PM<br />Sat · crawfish (seasonal)</p>
+        </div>
+        <div>
+          <h4>Order</h4>
+          <p><a href="tel:+12254654512">(225) 465-4512</a><br /><a href="#menu">See the menu</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <p>&copy; <span id="year">2026</span> Ethel's Snack Shack. All rights reserved.</p>
+      <p class="footer-credit">Redesign concept — unaffiliated pitch piece.</p>
+    </div>
+  </footer>
+
+  <a class="floating-call" href="tel:+12254654512" aria-label="Call Ethel's Snack Shack to order">
+    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1l-2.2 2.2Z"/></svg>
+    <span>Call to Order</span>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>
