@@ -45,8 +45,8 @@ tags, a canonical link, plus `robots.txt` and `sitemap.xml` at the repo root.
 
 **Base URL placeholder:** the canonical link, `og:url`, `twitter:image`, the JSON-LD `url`/`image`/`menu`,
 and the `robots.txt` / `sitemap.xml` URLs all use the literal placeholder
-`https://REPLACE-WITH-DOMAIN.com/`. At deploy time, run one find-and-replace of
-`https://REPLACE-WITH-DOMAIN.com/` → the real domain across `index.html`, `robots.txt`, and
+`https://ethelssnackshack.com/`. At deploy time, run one find-and-replace of
+`https://ethelssnackshack.com/` → the real domain across `index.html`, `robots.txt`, and
 `sitemap.xml`.
 
 ## Data notes
