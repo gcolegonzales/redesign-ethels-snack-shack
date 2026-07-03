@@ -88,9 +88,6 @@
       </a>
 
       <nav class="main-nav" aria-label="Primary">
-        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list" aria-label="Open menu">
-          <span></span><span></span><span></span>
-        </button>
         <ul id="nav-list" class="nav-list">
           <li><a href="#story">Our Story</a></li>
           <li><a href="#menu">Menu</a></li>
@@ -100,8 +97,15 @@
           <li><a class="nav-call" href="tel:+12254654512">Call to Order</a></li>
         </ul>
       </nav>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
+
+  <!-- Mobile drawer scrim (tap to close) -->
+  <div class="nav-scrim" hidden></div>
 
   <main>
     <!-- ===== HERO ===== -->

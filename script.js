@@ -6,45 +6,80 @@
   var header = document.querySelector(".site-header");
   var toggle = document.querySelector(".nav-toggle");
   var navList = document.getElementById("nav-list");
+  var scrim = document.querySelector(".nav-scrim");
 
-  /* ---- Sticky header shadow on scroll ---- */
-  var lastScroll = -1;
-  function onScroll() {
-    var y = window.scrollY || window.pageYOffset;
-    if ((y > 20) !== (lastScroll > 20)) {
-      header.classList.toggle("scrolled", y > 20);
+  /* ---- Mobile nav open/close ---- */
+  function closeNav() {
+    if (!navList || !navList.classList.contains("open")) return;
+    navList.classList.remove("open");
+    if (scrim) { scrim.classList.remove("open"); scrim.hidden = true; }
+    if (toggle) {
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.setAttribute("aria-label", "Open menu");
     }
-    lastScroll = y;
   }
-  window.addEventListener("scroll", onScroll, { passive: true });
-  onScroll();
+  function openNav() {
+    if (!navList) return;
+    navList.classList.add("open");
+    if (scrim) {
+      scrim.hidden = false;
+      // Unhide, force a reflow, then add .open so the fade-in transition runs.
+      // Reflow (not rAF) so it works even when rAF is throttled.
+      void scrim.offsetWidth;
+      scrim.classList.add("open");
+    }
+    if (toggle) {
+      toggle.setAttribute("aria-expanded", "true");
+      toggle.setAttribute("aria-label", "Close menu");
+    }
+  }
 
-  /* ---- Mobile nav toggle ---- */
   if (toggle && navList) {
     toggle.addEventListener("click", function () {
-      var open = navList.classList.toggle("open");
-      toggle.setAttribute("aria-expanded", String(open));
-      toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      if (navList.classList.contains("open")) closeNav();
+      else openNav();
     });
 
     // Close after clicking a link
     navList.addEventListener("click", function (e) {
-      if (e.target.closest("a")) {
-        navList.classList.remove("open");
-        toggle.setAttribute("aria-expanded", "false");
-        toggle.setAttribute("aria-label", "Open menu");
-      }
+      if (e.target.closest("a")) closeNav();
     });
+
+    // Close when tapping the scrim (page area)
+    if (scrim) scrim.addEventListener("click", closeNav);
 
     // Close on Escape
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && navList.classList.contains("open")) {
-        navList.classList.remove("open");
-        toggle.setAttribute("aria-expanded", "false");
+        closeNav();
         toggle.focus();
       }
     });
   }
+
+  /* ---- Sticky header shadow + hide-on-scroll-down / reveal-on-scroll-up ---- */
+  var lastScroll = window.scrollY || window.pageYOffset;
+  var ticking = false;
+  function updateHeader() {
+    var y = window.scrollY || window.pageYOffset;
+    header.classList.toggle("scrolled", y > 20);
+
+    // Reveal on ANY upward scroll; hide when scrolling down past the header.
+    // Never hide while the mobile drawer is open.
+    if (navList && navList.classList.contains("open")) {
+      header.classList.remove("header-hidden");
+    } else if (y < lastScroll || y <= header.offsetHeight) {
+      header.classList.remove("header-hidden");   // scrolling up / near top
+    } else if (y > lastScroll && y > header.offsetHeight) {
+      header.classList.add("header-hidden");       // scrolling down
+    }
+    lastScroll = y;
+    ticking = false;
+  }
+  window.addEventListener("scroll", function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(updateHeader); }
+  }, { passive: true });
+  updateHeader();
 
   /* ---- Scroll reveal ---- */
   var reveals = document.querySelectorAll(".reveal");
