@@ -7,9 +7,54 @@
   var toggle = document.querySelector(".nav-toggle");
   var navList = document.getElementById("nav-list");
   var scrim = document.querySelector(".nav-scrim");
+  var main = document.querySelector("main");
+  var footer = document.querySelector(".site-footer");
+  var floatingCall = document.querySelector(".floating-call");
+  var MOBILE_QUERY = "(max-width: 760px)";
+
+  // Elements outside the drawer that get marked inert while it's open.
+  var backgroundEls = [main, footer, floatingCall].filter(Boolean);
 
   /* ---- Mobile nav open/close ---- */
-  function closeNav() {
+  function isMobile() {
+    return window.matchMedia(MOBILE_QUERY).matches;
+  }
+
+  function getFocusable() {
+    if (!navList) return [];
+    return Array.prototype.filter.call(
+      navList.querySelectorAll("a[href], button:not([disabled])"),
+      function (el) {
+        return el.offsetWidth > 0 || el.offsetHeight > 0 || el === document.activeElement;
+      }
+    );
+  }
+
+  // Keep the off-canvas drawer links out of the tab order when closed
+  // (and always at desktop widths where the drawer isn't used).
+  function syncDrawerTabbability() {
+    if (!navList) return;
+    var reachable = navList.classList.contains("open") || !isMobile();
+    var links = navList.querySelectorAll("a");
+    Array.prototype.forEach.call(links, function (a) {
+      if (reachable) a.removeAttribute("tabindex");
+      else a.setAttribute("tabindex", "-1");
+    });
+  }
+
+  function setBackgroundInert(on) {
+    backgroundEls.forEach(function (el) {
+      if (on) {
+        el.setAttribute("inert", "");
+        el.setAttribute("aria-hidden", "true");
+      } else {
+        el.removeAttribute("inert");
+        el.removeAttribute("aria-hidden");
+      }
+    });
+  }
+
+  function closeNav(returnFocus) {
     if (!navList || !navList.classList.contains("open")) return;
     navList.classList.remove("open");
     if (scrim) { scrim.classList.remove("open"); scrim.hidden = true; }
@@ -17,6 +62,11 @@
       toggle.setAttribute("aria-expanded", "false");
       toggle.setAttribute("aria-label", "Open menu");
     }
+    setBackgroundInert(false);
+    document.documentElement.style.overflow = "";
+    document.body.style.overflow = "";
+    syncDrawerTabbability();
+    if (returnFocus && toggle) toggle.focus();
   }
   function openNav() {
     if (!navList) return;
@@ -32,29 +82,69 @@
       toggle.setAttribute("aria-expanded", "true");
       toggle.setAttribute("aria-label", "Close menu");
     }
+    setBackgroundInert(true);
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+    syncDrawerTabbability();
+    // Move focus into the drawer (first link).
+    var focusable = getFocusable();
+    if (focusable.length) focusable[0].focus();
   }
 
   if (toggle && navList) {
     toggle.addEventListener("click", function () {
-      if (navList.classList.contains("open")) closeNav();
+      if (navList.classList.contains("open")) closeNav(true);
       else openNav();
     });
 
     // Close after clicking a link
     navList.addEventListener("click", function (e) {
-      if (e.target.closest("a")) closeNav();
+      if (e.target.closest("a")) closeNav(false);
     });
 
     // Close when tapping the scrim (page area)
-    if (scrim) scrim.addEventListener("click", closeNav);
+    if (scrim) scrim.addEventListener("click", function () { closeNav(true); });
 
-    // Close on Escape
+    // Close on Escape; trap Tab within the drawer while open.
     document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape" && navList.classList.contains("open")) {
-        closeNav();
-        toggle.focus();
+      if (!navList.classList.contains("open")) return;
+      if (e.key === "Escape") {
+        closeNav(true);
+        return;
+      }
+      if (e.key === "Tab") {
+        var focusable = getFocusable();
+        if (!focusable.length) return;
+        var first = focusable[0];
+        var last = focusable[focusable.length - 1];
+        var active = document.activeElement;
+        // If focus somehow escaped the drawer, pull it back in.
+        if (!navList.contains(active)) {
+          e.preventDefault();
+          first.focus();
+          return;
+        }
+        if (e.shiftKey && active === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && active === last) {
+          e.preventDefault();
+          first.focus();
+        }
       }
     });
+
+    // Reset drawer + toggle state when crossing the desktop breakpoint.
+    var mql = window.matchMedia(MOBILE_QUERY);
+    var onBreakpoint = function () {
+      if (!isMobile()) closeNav(false);
+      syncDrawerTabbability();
+    };
+    if (mql.addEventListener) mql.addEventListener("change", onBreakpoint);
+    else if (mql.addListener) mql.addListener(onBreakpoint);
+
+    // Initial state: keep hidden drawer links out of tab order on mobile.
+    syncDrawerTabbability();
   }
 
   /* ---- Sticky header shadow + hide-on-scroll-down / reveal-on-scroll-up ---- */
