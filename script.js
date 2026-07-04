@@ -7,6 +7,7 @@
   var toggle = document.querySelector(".nav-toggle");
   var navList = document.getElementById("nav-list");
   var scrim = document.querySelector(".nav-scrim");
+  var drawerClose = document.querySelector(".drawer-close");
   var main = document.querySelector("main");
   var footer = document.querySelector(".site-footer");
   var floatingCall = document.querySelector(".floating-call");
@@ -14,6 +15,19 @@
 
   // Elements outside the drawer that get marked inert while it's open.
   var backgroundEls = [main, footer, floatingCall].filter(Boolean);
+
+  // Move the drawer + scrim OUT of the sticky header ONCE on init.
+  // The header uses backdrop-filter, which traps position:fixed descendants
+  // in its containing block and re-paints them when the header transforms
+  // (hide/reveal on scroll) — this caused the drawer to "double open" and the
+  // page to wash out. Relocating to <body> escapes that containing block.
+  // Done once (not on every open) so opening is a single clean transition.
+  if (navList && navList.parentNode !== document.body) {
+    document.body.appendChild(navList);
+  }
+  if (scrim && scrim.parentNode !== document.body) {
+    document.body.appendChild(scrim);
+  }
 
   /* ---- Mobile nav open/close ---- */
   function isMobile() {
@@ -70,6 +84,10 @@
   }
   function openNav() {
     if (!navList) return;
+    // Ensure the header (which holds the X close control) is revealed even if
+    // the menu is opened while scrolled down and the header was hidden.
+    // updateHeader() only runs on scroll, so reveal it explicitly here (G1).
+    if (header) header.classList.remove("header-hidden");
     navList.classList.add("open");
     if (scrim) {
       scrim.hidden = false;
@@ -86,9 +104,13 @@
     document.documentElement.style.overflow = "hidden";
     document.body.style.overflow = "hidden";
     syncDrawerTabbability();
-    // Move focus into the drawer (first link).
+    // Move focus into the drawer (first link) WITHOUT scrolling the page.
+    // Plain .focus() would scroll the focused element into view and jump the page.
     var focusable = getFocusable();
-    if (focusable.length) focusable[0].focus();
+    if (focusable.length) {
+      try { focusable[0].focus({ preventScroll: true }); }
+      catch (err) { focusable[0].focus(); }
+    }
   }
 
   if (toggle && navList) {
@@ -104,6 +126,9 @@
 
     // Close when tapping the scrim (page area)
     if (scrim) scrim.addEventListener("click", function () { closeNav(true); });
+
+    // In-panel close (X) button
+    if (drawerClose) drawerClose.addEventListener("click", function () { closeNav(true); });
 
     // Close on Escape; trap Tab within the drawer while open.
     document.addEventListener("keydown", function (e) {

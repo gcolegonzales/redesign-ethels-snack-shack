@@ -46,6 +46,9 @@
 }
 
 * { box-sizing: border-box; }
+/* Kill the blue tap-highlight flash on tap across the whole site (iOS/Android). */
+html { -webkit-tap-highlight-color: transparent; }
+a, button, .nav-toggle, .nav-scrim, .nav-list a { -webkit-tap-highlight-color: transparent; }
 
 html, body { overflow-x:clip; max-width: 100%; }
 html { scroll-behavior: smooth; }
@@ -124,7 +127,7 @@ img { max-width: 100%; display: block; }
 
 /* ============ HEADER ============ */
 .site-header {
-  position: sticky; top: 0; z-index: 100;
+  position: sticky; top: 0; z-index: 130;   /* above scrim (110) + drawer (120) so the X close stays tappable */
   background: rgba(42, 27, 18, 0.92);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(224, 165, 46, 0.22);
@@ -198,6 +201,21 @@ img { max-width: 100%; display: block; }
   user-select: none; -webkit-user-select: none;
 }
 .nav-scrim.open { opacity: 1; pointer-events: auto; }
+
+/* In-panel close (X) — lives inside the drawer, so it is ALWAYS visible when the
+   drawer is open, at any scroll position (independent of the sticky header).
+   Hidden on desktop; shown only inside the mobile drawer. */
+.nav-close-li { display: none; }
+.drawer-close {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px; padding: 0;
+  background: rgba(224, 165, 46, 0.14);
+  border: 1px solid rgba(224, 165, 46, 0.4);
+  border-radius: 10px; color: var(--cream-100); cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color .2s ease, border-color .2s ease;
+}
+.drawer-close:hover { background: rgba(224, 165, 46, 0.24); }
 
 /* ============ HERO ============ */
 .hero {
@@ -570,6 +588,17 @@ section { position: relative; }
 @media (max-width: 760px) {
   .nav-toggle { display: flex; }
   .main-nav { -webkit-tap-highlight-color: transparent; }
+
+  /* Show the in-panel close, pinned to the top-right of the drawer so it stays
+     visible at any scroll position. This is the ONE close control on mobile. */
+  .nav-close-li {
+    display: block; position: absolute; top: .75rem; right: 1rem;
+    width: auto; z-index: 2;
+  }
+  /* With a dedicated in-panel X, drop the header hamburger's X morph entirely:
+     while the drawer is open the hamburger is hidden, so exactly one close
+     control is visible. (It still opens the menu when closed.) */
+  .nav-toggle[aria-expanded="true"] { visibility: hidden; }
   /* Side-opening off-canvas drawer — full viewport height, opaque, no bottom gap */
   .nav-list {
     position: fixed; top: 0; right: 0; bottom: 0;
